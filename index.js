@@ -5,7 +5,7 @@ const dotenv = require("dotenv");
 const path = require("path");
 
 //port
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 // dotenv config
 dotenv.config();
@@ -24,7 +24,7 @@ const categoryRoute = require("./routers/categories");
 const productRoute = require("./routers/products");
 
 // route middlewares
-app.use('/images', express.static(path.join(__dirname, 'images')))
+app.use("/images", express.static(path.join(__dirname, "images")));
 app.use("/api/user", authRoute);
 app.use("/api/categories", categoryRoute);
 app.use("/api/products", productRoute);
