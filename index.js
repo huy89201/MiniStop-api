@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const path = require("path");
+const cors = require('cors');
 
 //port
 const port = process.env.PORT || 3000;
@@ -17,6 +18,7 @@ mongoose.connect(process.env.DB_CONNECT, () =>
 
 // middlewares
 app.use(express.json());
+app.use(cors());
 
 // router
 const authRoute = require("./routers/auth");
